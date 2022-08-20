@@ -55,7 +55,7 @@ func (ptr *ptr) delete() {
 
 func (ptr *ptr) leftSibling() *ptr {
 	iter := ptr.tree.ptrReverseIterator(ptr.level, nil, ptr.key)
-	defer iter.Close()
+	//defer iter.Close()
 	return iter.ptr()
 }
 
