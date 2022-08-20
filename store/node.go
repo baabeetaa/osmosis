@@ -54,7 +54,9 @@ func (ptr *ptr) delete() {
 }
 
 func (ptr *ptr) leftSibling() *ptr {
-	return ptr.tree.ptrReverseIterator(ptr.level, nil, ptr.key).ptr()
+	iter := ptr.tree.ptrReverseIterator(ptr.level, nil, ptr.key)
+	defer iter.Close()
+	return iter.ptr()
 }
 
 func (ptr *ptr) rightSibling() *ptr {
