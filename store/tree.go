@@ -90,7 +90,7 @@ type ptrIterator struct {
 
 func (iter ptrIterator) ptr() *ptr {
 	// ptrIterator becomes invalid once retrieve ptr
-	defer iter.Close()
+	//defer iter.Close()
 
 	if !iter.Valid() {
 		return nil

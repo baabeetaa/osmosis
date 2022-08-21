@@ -74,7 +74,9 @@ func (ptr *ptr) rightSibling() *ptr {
 
 func (ptr *ptr) child(n uint16) *ptr {
 	// TODO: set end to prefix iterator end
-	return ptr.tree.ptrIterator(ptr.level-1, ptr.node().Children[n].Index, nil).ptr()
+	iter := ptr.tree.ptrIterator(ptr.level-1, ptr.node().Children[n].Index, nil)
+	defer iter.Close()
+	return iter.ptr()
 }
 
 // parent returns the parent of the provided pointer.
