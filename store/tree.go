@@ -95,10 +95,12 @@ func (iter ptrIterator) ptr() *ptr {
 	if !iter.Valid() {
 		return nil
 	}
+
+	key := iter.Key()[7:]
 	res := ptr{
 		tree:  iter.tree,
 		level: iter.level,
-		key:   iter.Key()[7:],
+		key:   key,
 	}
 	return &res
 }
